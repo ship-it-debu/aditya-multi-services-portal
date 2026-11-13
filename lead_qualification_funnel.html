@@ -922,19 +922,85 @@
     }
 
     @media (max-width: 640px) {
+      .site-header {
+        top: 10px;
+        padding: 0 10px;
+      }
+      .nav-glass-panel {
+        padding: 6px 12px 6px 8px;
+        gap: 8px;
+        border-radius: 9999px;
+      }
+      .brand-identity {
+        gap: 8px;
+        min-width: 0;
+        flex: 1 1 auto;
+        overflow: hidden;
+      }
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .brand-meta {
+        min-width: 0;
+        overflow: hidden;
+      }
+      .firm-name {
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .firm-sub {
+        font-size: 9.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .lang-segment-control {
+        flex-shrink: 0;
+        padding: 2px;
+        gap: 2px;
+      }
+      .lang-btn {
+        padding: 5px 9px;
+        font-size: 11px;
+      }
       .hero-container {
-        padding: 40px 0 20px;
+        padding: 30px 0 18px;
+      }
+      .hero-h1 {
+        font-size: 34px;
+        line-height: 1.15;
+      }
+      .hero-p {
+        font-size: 14px;
       }
       .console-panel {
-        padding: 26px 20px;
+        padding: 24px 16px;
         border-radius: 22px;
       }
       .trust-strip {
-        gap: 14px;
-        padding: 12px 18px;
+        gap: 12px;
+        padding: 10px 14px;
+        font-size: 11px;
       }
       .trust-divider {
         display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .firm-name {
+        font-size: 11.5px;
+      }
+      .firm-sub {
+        display: none;
+      }
+      .lang-btn {
+        padding: 4px 7px;
+        font-size: 10px;
       }
     }
   </style>
@@ -1133,21 +1199,6 @@
                 <div class="tile-details">
                   <h4>POSH Committee & Comprehensive Compliance Audit</h4>
                   <p>Internal committee setup, statutory audits, risk exposure checks</p>
-                </div>
-              </button>
-
-              <button class="custom-option-card" onclick="selectEmployerService('Labour Contracting / Supply of Workers', 'contracting')">
-                <div class="icon-container">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <div class="tile-details">
-                  <h4>Labour Contracting / Supply of Workers</h4>
-                  <p>Supplying contract labourers to your site</p>
                 </div>
               </button>
             </div>
@@ -1732,18 +1783,6 @@
     function selectEmployerService(serviceName, category) {
       leadData.service = serviceName;
       leadData.serviceCategory = category;
-
-      if (category === 'contracting') {
-        showDisqualification(
-          currentLang === 'mr' 
-            ? "आम्ही मजूर पुरवठा (Labour Contracting / Manpower Supply) सेवा देत नाही. आम्ही केवळ सरकारी कायदे, परवाने व कोर्ट प्रकरणांचे काम करतो."
-            : currentLang === 'hi'
-            ? "हम लेबर सप्लाई (Manpower Contracting) का काम नहीं करते हैं। हमारी फर्म केवल कानूनी नोटिस, लाइसेंस व कोर्ट मामलों का काम करती है।"
-            : "We do not provide Labour Supply / Manpower Contracting services. Aditya Multi Services strictly handles statutory legal compliance, department litigation, and licensing."
-        );
-        return;
-      }
-
       goToStep(3);
     }
 
