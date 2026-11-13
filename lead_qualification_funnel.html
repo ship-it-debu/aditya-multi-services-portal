@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Aditya Multi Services | Adv. Vikram Varnekar | Labour Law & Department Litigation</title>
+  
+  <!-- Premium Font Pairing: Playfair Display + Space Grotesk + Space Mono + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       60-30-10 COLOR SYSTEM & AWWWARDS DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --bg-base: #060103;
+      --bg-surface: #0c0206;
+      --surface-card: rgba(20, 4, 11, 0.72);
+      --surface-card-hover: rgba(34, 7, 18, 0.85);
+      
+      --gold-accent: #e8a020;
+      --gold-light: #f5b840;
+      --gold-dim: #c68310;
+      --gold-glow: rgba(232, 160, 32, 0.22);
+      --gold-border: rgba(232, 160, 32, 0.26);
+      
+      --text-heading: #ffffff;
+      --text-body: #e4d2d7;
+      --text-muted: #8c737c;
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-card: rgba(255, 255, 255, 0.08);
+      
+      --wa-green: #25D366;
+      --wa-hover: #20BA5A;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==========================================================================
+       TRUUS.CO AWWWARDS-STYLE AMBIENT GLOW ANIMATION
+       ========================================================================== */
+    .ambient-bg-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .aura-orb-1 {
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(110, 18, 45, 0.45) 0%, rgba(55, 8, 22, 0.2) 45%, transparent 70%);
+      filter: blur(80px);
+      animation: floatAura 18s ease-in-out infinite alternate;
+    }
+
+    .aura-orb-2 {
+      position: absolute;
+      bottom: 10%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232, 160, 32, 0.08) 0%, transparent 60%);
+      filter: blur(90px);
+      animation: floatAuraRev 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatAura {
+      0% { transform: translateX(-50%) translateY(0) scale(1); }
+      50% { transform: translateX(-47%) translateY(40px) scale(1.08); }
+      100% { transform: translateX(-53%) translateY(-20px) scale(0.96); }
+    }
+
+    @keyframes floatAuraRev {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-50px) scale(1.15); }
+    }
+
+    /* Content Layout */
+    .content-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .viewport-wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       FLOATING GLASS HEADER BAR (with Entrance Animation)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+      animation: awwwardsFadeDown 0.9s var(--ease-out-expo) forwards;
+    }
+
+    .nav-glass-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 22px;
+      background: rgba(14, 3, 8, 0.82);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .brand-identity:hover {
+      opacity: 0.9;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--gold-accent);
+      box-shadow: 0 0 16px rgba(232, 160, 32, 0.35);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .firm-name {
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.2px;
+    }
+
+    .firm-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold-accent);
+      letter-spacing: 0.5px;
+    }
+
+    /* Segmented Language Controller */
+    .lang-segment-control {
+      display: flex;
+      background: rgba(8, 1, 4, 0.88);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s var(--ease-out-expo);
+    }
+
+    .lang-btn.active {
+      background: var(--gold-accent);
+      color: #0d0205;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(232, 160, 32, 0.45);
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH STAGGERED REVEAL ANIMATIONS
+       ========================================================================== */
+    .hero-container {
+      padding: 72px 0 36px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 160, 32, 0.08);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 22px;
+      opacity: 0;
+      animation: awwwardsFadeUp 0.8s var(--ease-out-expo) 0.15s forwards;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold-accent);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+      font-weight: 700;
+      line-height: 1.14;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+      max-width: 860px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.3s forwards;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold-accent);
+      font-weight: 400;
+    }
+
+    .hero-p {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--text-body);
+      max-width: 640px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.45s forwards;
+    }
+
+    /* Trust Signals Bar */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 13px 28px;
+      background: rgba(18, 4, 10, 0.55);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-body);
+    }
+
+    .trust-item strong {
+      font-family: var(--font-mono);
+      color: var(--gold-accent);
+      font-size: 14px;
+    }
+
+    .trust-divider {
+      color: rgba(255, 255, 255, 0.12);
+      font-size: 10px;
+    }
+
+    /* ==========================================================================
+       AWWWARDS INFINITE MARQUEE TICKER
+       ========================================================================== */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      padding: 14px 0;
+      margin-bottom: 40px;
+      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .marquee-inner {
+      display: inline-block;
+      animation: marqueeScroll 32s linear infinite;
+    }
+
+    .marquee-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 0 16px;
+    }
+
+    .marquee-dot {
+      color: var(--gold-accent);
+      font-size: 14px;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================================
+       THE INTAKE CONSOLE (Awwwards Card Spotlight & Reveal)
+       ========================================================================== */
+    .console-outer {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto 90px;
+      opacity: 0;
+      animation: awwwardsFadeUp 1s var(--ease-out-expo) 0.75s forwards;
+    }
+
+    .console-panel {
+      position: relative;
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: 28px;
+      padding: 36px 32px;
+      box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      transition: border-color 0.3s ease;
+    }
+
+    .console-panel:hover {
+      border-color: rgba(232, 160, 32, 0.35);
+    }
+
+    /* Stepper Track */
+    .stepper-track {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
+
+    .stepper-notch {
+      flex: 1;
+      height: 3.5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .stepper-notch.active {
+      background: var(--gold-accent);
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+
+    /* Step Views with Fluid Step Transitions */
+    .step-view {
+      animation: stepReveal 0.45s var(--ease-out-expo) forwards;
+    }
+
+    @keyframes stepReveal {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .step-header {
+      margin-bottom: 24px;
+    }
+
+    .step-micro-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .step-main-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .step-guidance {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Option Stack with Vector SVG Icons (No Emojis!) */
+    .option-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .custom-option-card {
+      background: rgba(14, 3, 8, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-heading);
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.28s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-option-card:hover, .custom-option-card:focus {
+      background: var(--surface-card-hover);
+      border-color: var(--gold-border);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    .custom-option-card:active {
+      transform: scale(0.99);
+    }
+
+    /* SVG Icon Container with Truus.co hover transform */
+    .icon-container {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(232, 160, 32, 0.08);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold-accent);
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .custom-option-card:hover .icon-container {
+      background: rgba(232, 160, 32, 0.18);
+      transform: scale(1.08) rotate(-4deg);
+      box-shadow: 0 0 18px rgba(232, 160, 32, 0.35);
+      color: #ffffff;
+    }
+
+    .tile-details h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 3px;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tile-details p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* 10-Word Description Section (Employees Only) */
+    .employee-desc-box {
+      margin-bottom: 20px;
+    }
+
+    .desc-counter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .live-count-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(239, 68, 68, 0.12);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      transition: all 0.25s var(--ease-out-expo);
+    }
+
+    .live-count-badge.valid {
+      background: rgba(34, 197, 94, 0.14);
+      color: #86efac;
+      border-color: rgba(34, 197, 94, 0.35);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+    }
+
+    .desc-counter-hint {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Form Fields */
+    .field-row {
+      margin-bottom: 18px;
+    }
+
+    .field-prompt {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    .field-text-box {
+      width: 100%;
+      background: rgba(10, 2, 5, 0.88);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--text-heading);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .field-text-box:focus {
+      border-color: var(--gold-accent);
+      background: rgba(16, 3, 9, 0.95);
+      box-shadow: 0 0 0 2px var(--gold-glow);
+    }
+
+    textarea.field-text-box {
+      resize: vertical;
+      min-height: 85px;
+      line-height: 1.5;
+    }
+
+    select.field-text-box {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23e8a020' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: calc(100% - 16px) center;
+      padding-right: 38px;
+    }
+
+    /* Shimmering / Pulsing Action Buttons */
+    .button-duo {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .cta-button-gold {
+      flex: 1;
+      background: linear-gradient(135deg, #e8a020 0%, #f5b840 50%, #c48210 100%);
+      color: #0c0205;
+      border: none;
+      padding: 15px 22px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(232, 160, 32, 0.35);
+      transition: all 0.28s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button-gold::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: rotate(25deg);
+      animation: btnShimmer 4s infinite ease-in-out;
+    }
+
+    @keyframes btnShimmer {
+      0%, 75% { left: -60%; }
+      100% { left: 140%; }
+    }
+
+    .cta-button-gold:hover {
+      box-shadow: 0 10px 30px rgba(232, 160, 32, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .cta-button-gold:active {
+      transform: scale(0.98);
+    }
+
+    .cta-button-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-muted);
+      padding: 15px 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cta-button-ghost:hover {
+      border-color: var(--text-heading);
+      color: var(--text-heading);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Output Views */
+    .result-pane {
+      text-align: center;
+      padding: 12px 0;
+      animation: stepReveal 0.5s var(--ease-out-expo) forwards;
+    }
+
+    .approved-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(37, 211, 102, 0.12);
+      color: #86efac;
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .dossier-card {
+      background: rgba(10, 2, 5, 0.9);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      text-align: left;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .dossier-card strong {
+      color: var(--gold-accent);
+    }
+
+    .wa-dispatch-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: var(--wa-green);
+      color: #05190b;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      padding: 17px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s var(--ease-out-expo);
+    }
+
+    .wa-dispatch-btn:hover {
+      background: var(--wa-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5);
+    }
+
+    .polite-notice {
+      background: rgba(10, 2, 5, 0.9);
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       PRACTICE AREAS GRID (Editorial Authority Section)
+       ========================================================================== */
+    .authority-zone {
+      padding: 40px 0 100px;
+    }
+
+    .zone-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--gold-accent);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .zone-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      color: var(--text-heading);
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .editorial-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: 22px;
+      padding: 32px 28px;
+      transition: all 0.35s var(--ease-out-expo);
+      position: relative;
+    }
+
+    .editorial-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    .card-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(232, 160, 32, 0.08);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .editorial-card:hover .card-icon-wrap {
+      transform: scale(1.1) rotate(-4deg);
+      background: rgba(232, 160, 32, 0.16);
+      color: #ffffff;
+    }
+
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold-accent);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      color: var(--text-heading);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-para {
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* Master Footer */
+    .master-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: #040002;
+      padding: 50px 0 40px;
+      text-align: center;
+    }
+
+    .footer-firm {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .footer-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    .footer-email-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold-accent);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #665259;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Keyframe Animations */
+    @keyframes awwwardsFadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes awwwardsFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-container {
+        padding: 40px 0 20px;
+      }
+      .console-panel {
+        padding: 26px 20px;
+        border-radius: 22px;
+      }
+      .trust-strip {
+        gap: 14px;
+        padding: 12px 18px;
+      }
+      .trust-divider {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Awwwards Glow Background -->
+  <div class="ambient-bg-glow">
+    <div class="aura-orb-1"></div>
+    <div class="aura-orb-2"></div>
+  </div>
+
+  <div class="content-shell">
+
+    <!-- Floating Glass Header Bar -->
+    <header class="site-header">
+      <nav class="nav-glass-panel">
+        <a href="https://adityamultiservices.vercel.app" class="brand-identity" target="_blank">
+          <img src="logo.jpg" alt="AMS" class="brand-mark" onerror="this.style.display='none';">
+          <div class="brand-meta">
+            <span class="firm-name">AdityaMultiServices</span>
+            <span class="firm-sub">Adv. Vikram Varnekar &bull; Pune</span>
+          </div>
+        </a>
+        
+        <!-- Segmented Language Switcher -->
+        <div class="lang-segment-control">
+          <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" onclick="setLanguage('hi')">हिंदी</button>
+          <button class="lang-btn" onclick="setLanguage('mr')">मराठी</button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="viewport-wrap">
+      
+      <!-- 5-Part High Conversion Hero -->
+      <section class="hero-container">
+        <div class="kicker-pill">
+          <span class="pulse-dot"></span>
+          <span id="heroEyebrow">Direct Legal Representation &bull; Pune, MH</span>
+        </div>
+
+        <h1 class="hero-h1" id="heroHeadline">
+          Protect Your Business.<br>
+          <em>Recover Your Dues. Defend Your Rights.</em>
+        </h1>
+
+        <p class="hero-p" id="heroSub">
+          28+ years of courtroom and department practice across EPFO, ESIC, Factory Act, and Labour Commissioner offices. Direct legal case assessment without corporate jargon.
+        </p>
+
+        <!-- Trust Signals Strip -->
+        <div class="trust-strip">
+          <div class="trust-item"><strong>28+</strong> Years Maharashtra Bar</div>
+          <span class="trust-divider">&bull;</span>
+          <div class="trust-item"><strong>117+</strong> Firms Retained</div>
+          <span class="trust-divider">&bull;</span>
+          <div class="trust-item"><strong>BCOM, DTL, DLL, LLB</strong></div>
+          <span class="trust-divider">&bull;</span>
+          <div class="trust-item"><strong>Pune & PCMC Industrial Belt</strong></div>
+        </div>
+
+        <!-- Awwwards Smooth Infinite Marquee Ticker -->
+        <div class="marquee-container">
+          <div class="marquee-inner">
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> EPFO Section 7A & 14B Defense</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Factory Act 1948 Licensing</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> ESIC Section 45A Orders</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Gratuity Form N Recovery</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> New Labour Codes 2026 Audit</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Labour Commissioner Petitions</span>
+            <!-- Repeat for seamless infinite loop -->
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> EPFO Section 7A & 14B Defense</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Factory Act 1948 Licensing</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> ESIC Section 45A Orders</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Gratuity Form N Recovery</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> New Labour Codes 2026 Audit</span>
+            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Labour Commissioner Petitions</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Intake Console -->
+      <div class="console-outer">
+        <div class="console-panel">
+
+          <!-- Stepper Track -->
+          <div class="stepper-track">
+            <div class="stepper-notch active" id="notch1"></div>
+            <div class="stepper-notch" id="notch2"></div>
+            <div class="stepper-notch" id="notch3"></div>
+            <div class="stepper-notch" id="notch4"></div>
+          </div>
+
+          <!-- STEP 1: CLIENT TYPE -->
+          <div id="step1" class="step-view">
+            <div class="step-header">
+              <span class="step-micro-tag" id="step1Kicker">Step 1 of 4 &bull; Client Track</span>
+              <h2 class="step-main-title" id="step1Title">Who is seeking legal representation?</h2>
+              <p class="step-guidance" id="step1Desc">Select your category to route to the correct legal procedure:</p>
+            </div>
+
+            <div class="option-vertical-list">
+              <!-- Employer Option with Clean SVG Icon -->
+              <button class="custom-option-card" onclick="selectClientType('employer')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <line x1="9" y1="22" x2="9" y2="2"></line>
+                    <path d="M13 6h3M13 10h3M13 14h3M13 18h3M6 6h1M6 10h1M6 14h1M6 18h1"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4 id="optEmployerTitle">Employer / Business Owner / HR Management</h4>
+                  <p id="optEmployerDesc">Notices (EPF/ESIC/MPCB), Factory/Shop Licenses, Compliance Audits, Retainers</p>
+                </div>
+              </button>
+
+              <!-- Employee Option with Clean SVG Icon -->
+              <button class="custom-option-card" onclick="selectClientType('employee')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                    <path d="M7 21h10"></path>
+                    <path d="M12 3v18"></path>
+                    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4 id="optEmployeeTitle">Employee / Worker (Dispute Filing)</h4>
+                  <p id="optEmployeeDesc">PF Stuck/Non-Deposit, ESIC Benefit Denials, Gratuity Recovery, Department Petitions</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2A: EMPLOYER MATTERS -->
+          <div id="step2_employer" class="step-view hidden">
+            <div class="step-header">
+              <span class="step-micro-tag" id="step2EmpKicker">Step 2 of 4 &bull; Corporate Matter</span>
+              <h2 class="step-main-title" id="step2EmpTitle">What service does your establishment need?</h2>
+              <p class="step-guidance" id="step2EmpDesc">Select your primary matter:</p>
+            </div>
+
+            <div class="option-vertical-list">
+              <button class="custom-option-card" onclick="selectEmployerService('EPF / ESIC / MPCB Notice & Summons Defense', 'litigation')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>EPF / ESIC / MPCB Notice & Summons Defense</h4>
+                  <p>Section 7A/14B assessment orders, officer summons, show-cause legal replies</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployerService('New Statutory Licenses & Registrations', 'licensing')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6"></circle>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>New Licenses & Statutory Registrations</h4>
+                  <p>Factory License, Shop Act, CLRA Principal Employer, PT / EPF code generation</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployerService('Monthly Retainer: Payroll, EPF, ESIC, PT', 'retainer')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 3v18h18"></path>
+                    <path d="m19 9-5 5-4-4-3 3"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>Monthly Retainer & Compliance Management</h4>
+                  <p>Challans, returns filing, wage structuring, statutory register maintenance</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployerService('POSH / NAPS & Full Labour Law Audit', 'audit')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>POSH Committee & Comprehensive Compliance Audit</h4>
+                  <p>Internal committee setup, statutory audits, risk exposure checks</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployerService('Labour Contracting / Supply of Workers', 'contracting')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>Labour Contracting / Supply of Workers</h4>
+                  <p>Supplying contract labourers to your site</p>
+                </div>
+              </button>
+            </div>
+
+            <div class="button-duo">
+              <button class="cta-button-ghost" onclick="goToStep(1)">&larr; Back</button>
+            </div>
+          </div>
+
+          <!-- STEP 2B: EMPLOYEE MATTERS -->
+          <div id="step2_employee" class="step-view hidden">
+            <div class="step-header">
+              <span class="step-micro-tag" id="step2EmpeeKicker">Step 2 of 4 &bull; Dispute Category</span>
+              <h2 class="step-main-title" id="step2EmpeeTitle">What legal complaint do you need filed?</h2>
+              <p class="step-guidance" id="step2EmpeeDesc">Select your specific grievance:</p>
+            </div>
+
+            <div class="option-vertical-list">
+              <button class="custom-option-card" onclick="selectEmployeeService('EPF Dispute: Non-Deposit, Stuck Funds, or Rejection', 'pf_case')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 9v1M15 12h-1M12 15v-1M9 12h1"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>EPF / PF Dispute (Stuck Funds / Non-Deposit)</h4>
+                  <p>PF deducted but not deposited, transfer fraud, claim rejected</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployeeService('ESIC Medical / Disability Benefit Dispute', 'esic_case')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <line x1="12" y1="8" x2="12" y2="14"></line>
+                    <line x1="9" y1="11" x2="15" y2="11"></line>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>ESIC Benefit Claim & Hospital Denials</h4>
+                  <p>Hospital treatment denied, IP number not generated, compensation</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployeeService('Gratuity Non-Payment & Form N Legal Filing', 'gratuity_case')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 3 5 2 5 5a2.5 2.5 0 0 1-5 0"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>Gratuity Recovery / Form N Filing</h4>
+                  <p>Withheld gratuity after 5+ years service, disputed F&F settlement calculations</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployeeService('Formal Complaint before Labour Commissioner', 'labour_complaint')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="8" y1="13" x2="16" y2="13"></line>
+                    <line x1="8" y1="17" x2="12" y2="17"></line>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>Labour Commissioner Formal Complaint</h4>
+                  <p>Illegal termination, withheld salary, statutory petition</p>
+                </div>
+              </button>
+
+              <button class="custom-option-card" onclick="selectEmployeeService('General Workplace Advice / Free Inquiry', 'general_inquiry')">
+                <div class="icon-container">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div class="tile-details">
+                  <h4>General Workplace Inquiry / Guidance</h4>
+                  <p>Informal question or general guidance on workplace matter</p>
+                </div>
+              </button>
+            </div>
+
+            <div class="button-duo">
+              <button class="cta-button-ghost" onclick="goToStep(1)">&larr; Back</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: SCALE / CLAIM & 10-WORD DESCRIPTION (EMPLOYEES ONLY) -->
+          <div id="step3" class="step-view hidden">
+            <div class="step-header">
+              <span class="step-micro-tag" id="step3Kicker">Step 3 of 4 &bull; Scope & Terms</span>
+              <h2 class="step-main-title" id="step3Title">Case Information & Terms</h2>
+              <p class="step-guidance" id="step3Desc">Provide matter details to continue:</p>
+            </div>
+
+            <!-- 10-WORD DESCRIPTION: STRICTLY FOR EMPLOYEES -->
+            <div id="employeeDescWrap" class="employee-desc-box">
+              <label class="field-prompt" id="descLabel">Describe what happened (Minimum 10 words):</label>
+              <textarea class="field-text-box" id="caseDescription" rows="3" placeholder="e.g. Company deducted PF for last 2 years but never deposited to EPFO portal. Now HR refusing UAN details..." oninput="checkWordCount()"></textarea>
+              
+              <div class="desc-counter-row">
+                <span class="desc-counter-hint" id="wordHint">Required: At least 10 words</span>
+                <span id="wordCountBadge" class="live-count-badge">0 / 10 words</span>
+              </div>
+            </div>
+
+            <!-- Scale (Employers Only) -->
+            <div id="scaleWrap" class="field-row">
+              <label class="field-prompt" id="scaleLabel">Total Employees in Firm:</label>
+              <select class="field-text-box" id="scaleInput">
+                <option value="50 - 200 employees">50 to 200 Employees (Commercial)</option>
+                <option value="200+ employees">200+ Enterprise Employees</option>
+                <option value="11 - 49 employees">11 to 49 Employees</option>
+                <option value="1 - 10 employees">1 to 10 Employees</option>
+              </select>
+            </div>
+
+            <!-- Claim Bracket (Employees Only) -->
+            <div id="claimWrap" class="field-row hidden">
+              <label class="field-prompt" id="claimLabel">Estimated Disputed Amount / Claim:</label>
+              <select class="field-text-box" id="claimInput">
+                <option value="₹2,00,000 to ₹10,00,000+ (Substantial Dispute)">₹2 Lakh to ₹10 Lakh+ (Substantial Dispute)</option>
+                <option value="₹50,000 to ₹2,00,000">₹50,000 to ₹2,00,000</option>
+                <option value="Under ₹50,000">Under ₹50,000</option>
+              </select>
+            </div>
+
+            <!-- Fee Agreement -->
+            <div class="field-row" id="feeWrap">
+              <label class="field-prompt" id="feeLabel">Consultation Fee Terms:</label>
+              <select class="field-text-box" id="feeAgreementInput">
+                <option value="Agreed: Ready to pay professional fees">✓ I understand this is a paid legal service and am ready to pay professional fees.</option>
+                <option value="Require formal fee quotation first">Require formal fee structure first</option>
+                <option value="Looking for free advice only">Seeking free advice only</option>
+              </select>
+            </div>
+
+            <div class="button-duo">
+              <button class="cta-button-ghost" onclick="goToStep(2)">&larr; Back</button>
+              <button class="cta-button-gold" id="step3NextBtn" onclick="validateStep3()">Next: Contact Details &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: CONTACT INFORMATION -->
+          <div id="step4" class="step-view hidden">
+            <div class="step-header">
+              <span class="step-micro-tag" id="step4Kicker">Step 4 of 4 &bull; Final Step</span>
+              <h2 class="step-main-title" id="step4Title">Your Contact Information</h2>
+              <p class="step-guidance" id="step4Desc">Enter verified details to proceed:</p>
+            </div>
+
+            <div class="field-row">
+              <label class="field-prompt" id="nameLabel">Your Full Name:</label>
+              <input type="text" class="field-text-box" id="fullName" placeholder="e.g. Ramesh Patil" required>
+            </div>
+
+            <div class="field-row">
+              <label class="field-prompt" id="companyLabel">Company / Employer Name:</label>
+              <input type="text" class="field-text-box" id="companyName" placeholder="e.g. TechForge Solutions Pvt Ltd" required>
+            </div>
+
+            <div class="field-row">
+              <label class="field-prompt" id="phoneLabel">WhatsApp Phone Number:</label>
+              <input type="tel" class="field-text-box" id="phoneInput" placeholder="e.g. 9822011223" required>
+            </div>
+
+            <div class="field-row">
+              <label class="field-prompt" id="emailLabel">Email Address:</label>
+              <input type="email" class="field-text-box" id="emailInput" placeholder="e.g. name@company.com" required>
+            </div>
+
+            <div class="button-duo">
+              <button class="cta-button-ghost" onclick="goToStep(3)">&larr; Back</button>
+              <button class="cta-button-gold" onclick="submitQualification()">Submit & Open WhatsApp &rarr;</button>
+            </div>
+          </div>
+
+          <!-- RESULT: QUALIFIED (Instant WhatsApp link & Sheet Log) -->
+          <div id="resultQualified" class="result-pane hidden">
+            <div class="approved-tag">
+              <span>✓</span>
+              <span>APPROVED &bull; DIRECT WHATSAPP READY</span>
+            </div>
+            <h2 class="step-main-title" id="resApprovedTitle">Case Prioritized for Consultation</h2>
+            <p class="step-guidance" id="resApprovedDesc" style="margin-bottom:20px;">Your details and case summary are packaged. Click below to message Adv. Vikram Varnekar directly on WhatsApp.</p>
+
+            <div class="dossier-card" id="qualificationSummary">
+              <!-- Filled dynamically -->
+            </div>
+
+            <a href="#" id="directWhatsAppBtn" class="wa-dispatch-btn" target="_blank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <span id="waBtnText">Message Adv. Vikram on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- RESULT: GENERAL INQUIRY (Polite, NO WhatsApp button, NOT logged to Sheet) -->
+          <div id="resultGeneralInquiry" class="result-pane hidden">
+            <div class="polite-notice">
+              <div class="card-icon-wrap" style="margin: 0 auto 16px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h3 id="genInquiryTitle" style="font-family:var(--font-serif); font-size:20px; color:#fff; margin-bottom:6px;">Inquiry Details Received</h3>
+              <p id="genInquiryDesc" style="font-size:13.5px; color:var(--text-body); line-height:1.6; margin-bottom:18px;">Thank you. Your general workplace inquiry has been received. Our legal desk reviews submitted requests and will reach out via email if a suitable consultation window opens.</p>
+              <button class="cta-button-ghost" style="width:100%; border-color:var(--gold-border);" onclick="location.reload()">Back to Homepage</button>
+            </div>
+          </div>
+
+          <!-- RESULT: DISQUALIFIED (Labour Contracting Only) -->
+          <div id="resultDisqualified" class="result-pane hidden">
+            <div class="polite-notice" style="border-color:rgba(239,68,68,0.35);">
+              <div class="card-icon-wrap" style="margin: 0 auto 16px; border-color:rgba(239,68,68,0.4); color:#fca5a5;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3 style="font-family:var(--font-serif); font-size:20px; color:#fff; margin-bottom:6px;">Service Not Supported</h3>
+              <div id="disqualificationReason" style="font-size:13.5px; color:#fca5a5; line-height:1.6; margin-bottom:18px;">
+                <!-- Filled dynamically -->
+              </div>
+              <button class="cta-button-ghost" style="width:100%;" onclick="location.reload()">Start Over</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Editorial Practice Grid with SVG Vector Icons -->
+      <section class="authority-zone">
+        <p class="zone-kicker">Practice Areas &bull; Pune & Maharashtra</p>
+        <h2 class="zone-title">Core Legal Practice & Statutory Defense</h2>
+        
+        <div class="editorial-grid">
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="card-num">01 / LITIGATION</div>
+            <h3 class="card-title">EPFO & ESIC Department Defense</h3>
+            <p class="card-para">Direct representation in Section 7A, 14B damages, and 7Q interest inquiries before Regional PF Commissioners. Defending Section 45A contribution orders before ESIC Deputy Directors.</p>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+            <div class="card-num">02 / LICENSING</div>
+            <h3 class="card-title">Statutory Licensing & Registrations</h3>
+            <p class="card-para">Complete licensing under the Factories Act 1948, Maharashtra Shops & Establishments Act, Contract Labour (CLRA) Principal Employer & Contractor licenses, and MPCB consent approvals.</p>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="card-num">03 / COMPLIANCE</div>
+            <h3 class="card-title">Labour Law Audits & New Codes 2026</h3>
+            <p class="card-para">Preparation for the 4 New Labour Codes (Wages, Social Security, OSH, Industrial Relations). Wage structure auditing, basic salary adjustments, and statutory registers verification.</p>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 3 5 2 5 5a2.5 2.5 0 0 1-5 0"></path>
+              </svg>
+            </div>
+            <div class="card-num">04 / RECOVERY</div>
+            <h3 class="card-title">Gratuity Recovery & Controlling Authority</h3>
+            <p class="card-para">Filing Form N applications for recovery of unpaid gratuity with compound interest under Section 7 of the Payment of Gratuity Act 1972 before the Controlling Authority.</p>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="8" y1="13" x2="16" y2="13"></line>
+                <line x1="8" y1="17" x2="12" y2="17"></line>
+              </svg>
+            </div>
+            <div class="card-num">05 / ADVOCACY</div>
+            <h3 class="card-title">Labour Commissioner Petitions</h3>
+            <p class="card-para">Formal complaints and conciliation proceedings before Government Labour Officers and Assistant Labour Commissioners for illegal termination, wage withholding, and unfair labour practices.</p>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="m19 9-5 5-4-4-3 3"></path>
+              </svg>
+            </div>
+            <div class="card-num">06 / CORPORATE</div>
+            <h3 class="card-title">Corporate Compliance Retainers</h3>
+            <p class="card-para">Monthly retainers covering EPF, ESIC, Professional Tax, MLWF challans, statutory return filings, and continuous inspection protection for Pune & PCMC business establishments.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Master Footer -->
+    <footer class="master-footer">
+      <div class="viewport-wrap">
+        <div class="footer-firm">ADITYA MULTI SERVICES</div>
+        <p class="footer-desc">
+          Consulting & Legal Audits &bull; Pune & PCMC Industrial Belt, Maharashtra.<br>
+          Advocate Vikram Varnekar (BCOM, DTL, DLL, LLB). Specialized Statutory Defense & Labour Litigation.
+        </p>
+        <a href="mailto:amsleadsv@gmail.com" class="footer-email-tag">amsleadsv@gmail.com</a>
+        <p class="footer-copy">&copy; 2026 Aditya Multi Services. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script>
+    const CONSULTANT_WHATSAPP_NUMBER = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.WHATSAPP_NUMBER)
+      ? APP_CONFIG.WHATSAPP_NUMBER
+      : "919022213960"; 
+
+    const APPS_SCRIPT_WEBHOOK_URL = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.GOOGLE_SHEET_WEBHOOK_URL)
+      ? APP_CONFIG.GOOGLE_SHEET_WEBHOOK_URL
+      : ""; 
+
+    let currentLang = 'en';
+    let isGeneralInquiry = false;
+
+    // Multilingual Dictionary (10-word limit, polite general inquiry, no 60-sec)
+    const I18N = {
+      en: {
+        eyebrow: "Direct Legal Representation &bull; Pune, MH",
+        heroHead: "Protect Your Business.<br><em>Recover Your Dues. Defend Your Rights.</em>",
+        heroSub: "28+ years of courtroom and department practice across EPFO, ESIC, Factory Act, and Labour Commissioner offices. Direct legal case assessment without corporate jargon.",
+        step1Kicker: "Step 1 of 4 &bull; Client Track",
+        step1Title: "Who is seeking legal representation?",
+        step1Desc: "Select your category to route to the correct legal procedure:",
+        optEmployerTitle: "Employer / Business Owner / HR Management",
+        optEmployerDesc: "Notices (EPF/ESIC/MPCB), Factory/Shop Licenses, Compliance Audits, Retainers",
+        optEmployeeTitle: "Employee / Worker (Dispute Filing)",
+        optEmployeeDesc: "PF Stuck/Non-Deposit, ESIC Benefit Denials, Gratuity Recovery, Department Petitions",
+        step2EmpTitle: "What service does your establishment need?",
+        step2EmpDesc: "Select your primary matter:",
+        step2EmpeeTitle: "What legal complaint do you need filed?",
+        step2EmpeeDesc: "Select your specific grievance:",
+        step3Title: "Case Information & Terms",
+        step3Desc: "Provide matter details to continue:",
+        descLabel: "Describe what happened (Minimum 10 words):",
+        wordHint: "Required: At least 10 words",
+        scaleLabel: "Total Employees in Firm:",
+        claimLabel: "Estimated Disputed Amount / Claim:",
+        feeLabel: "Consultation Fee Terms:",
+        step4Title: "Your Contact Information",
+        step4Desc: "Enter verified details to proceed:",
+        nameLabel: "Your Full Name:",
+        companyLabel: "Company / Employer Name:",
+        phoneLabel: "WhatsApp Phone Number:",
+        emailLabel: "Email Address:",
+        resApprovedTitle: "Case Prioritized for Consultation",
+        resApprovedDesc: "Your details and case summary are packaged. Click below to message Adv. Vikram Varnekar directly on WhatsApp.",
+        waBtnText: "Message Adv. Vikram on WhatsApp",
+        genInquiryTitle: "Inquiry Details Received",
+        genInquiryDesc: "Thank you. Your general workplace inquiry has been received. Our legal desk reviews submitted requests and will reach out via email if a suitable consultation window opens.",
+        minWordsAlert: "Please write at least 10 words describing what happened so Adv. Vikram can review your case."
+      },
+      hi: {
+        eyebrow: "सीधी कानूनी पैरवी व सलाह &bull; पुणे",
+        heroHead: "अपने व्यापार की सुरक्षा करें.<br><em>अपने अधिकार व बकाया राशि की कानूनी वसूली.</em>",
+        heroSub: "EPFO, ESIC, फैक्ट्री एक्ट व श्रम आयुक्त कार्यालयों में 28+ वर्षों का कानूनी अनुभव। बिना किसी जटिल भाषा के सीधी कानूनी सलाह।",
+        step1Kicker: "कदम 1 / 4 &bull; ग्राहक प्रकार",
+        step1Title: "कानूनी सहायता किसे चाहिए?",
+        step1Desc: "शुरू करने के लिए अपना विकल्प चुनें:",
+        optEmployerTitle: "कंपनी मालिक / नियोक्ता / HR",
+        optEmployerDesc: "सरकारी नोटिस (PF/ESIC/MPCB), फैक्ट्री/शॉप लाइसेंस, ऑडिट, मासिक कंप्लायंस",
+        optEmployeeTitle: "कर्मचारी / कामगार (केस / शिकायत)",
+        optEmployeeDesc: "PF अटका हुआ, ESIC लाभ अस्वीकार, ग्रेच्युटी वसूली, शिकायत",
+        step2EmpTitle: "आपकी कंपनी को कौन सी सेवा चाहिए?",
+        step2EmpDesc: "अपना मुख्य विषय चुनें:",
+        step2EmpeeTitle: "आपको क्या कानूनी शिकायत दर्ज करानी है?",
+        step2EmpeeDesc: "अपनी समस्या का चयन करें:",
+        step3Title: "केस जानकारी व शर्तें",
+        step3Desc: "आगे बढ़ने के लिए विवरण भरें:",
+        descLabel: "समस्या का विवरण (कम से कम 10 शब्द):",
+        wordHint: "अनिवार्य: कम से कम 10 शब्द लिखें",
+        scaleLabel: "कंपनी में कुल कर्मचारी संख्या:",
+        claimLabel: "दावा की गई अनुमानित राशि:",
+        feeLabel: "परामर्श व केस फीस की शर्तें:",
+        step4Title: "आपकी संपर्क जानकारी",
+        step4Desc: "विवरण दर्ज करें:",
+        nameLabel: "आपका पूरा नाम:",
+        companyLabel: "कंपनी / संस्थान का नाम:",
+        phoneLabel: "WhatsApp मोबाइल नंबर:",
+        emailLabel: "ईमेल आईडी:",
+        resApprovedTitle: "केस प्राथमिकता से स्वीकृत",
+        resApprovedDesc: "आपकी केस जानकारी तैयार है। नीचे दिए गए बटन से सीधे एडवोकेट विक्रम वर्णेकर को WhatsApp करें।",
+        waBtnText: "एडवोकेट विक्रम को WhatsApp पर संदेश भेजें",
+        genInquiryTitle: "पूछताछ विवरण दर्ज हो गया",
+        genInquiryDesc: "धन्यवाद। आपकी सामान्य पूछताछ प्राप्त हो गई है। हमारी टीम आपके विषय की समीक्षा करेगी और उपयुक्त समय पर ईमेल द्वारा संपर्क करेगी।",
+        minWordsAlert: "कृपया अपनी समस्या कम से कम 10 शब्दों में लिखें ताकि वकील साहब आपका केस ठीक से समझ सकें।"
+      },
+      mr: {
+        eyebrow: "थेट कायदेशीर प्रतिनिधित्व &bull; पुणे",
+        heroHead: "आपल्या व्यवसायाचे कायदेशीर संरक्षण.<br><em>थकीत रकमांची वसुली व हक्कांचे रक्षण.</em>",
+        heroSub: "EPFO, ESIC, फॅक्टरी ॲक्ट आणि कामगार आयुक्त कार्यालयांमध्ये २८+ वर्षांचा प्रदीर्घ अनुभव. क्लिष्ट भाषेविना थेट केस तपासणी.",
+        step1Kicker: "पायरी १ / ४ &bull; ग्राहक प्रकार",
+        step1Title: "कायदेशीर सल्ला कोणासाठी हवा आहे?",
+        step1Desc: "सुरुवात करण्यासाठी योग्य पर्याय निवडा:",
+        optEmployerTitle: "कंपनी मालक / व्यवस्थापन / HR",
+        optEmployerDesc: "सरकारी नोटिसा (PF/ESIC/MPCB), कारखाने/दुकान परवाने, ऑडिट, कंप्लायन्स",
+        optEmployeeTitle: "कर्मचारी / कामगार (तक्रार दाखल करणे)",
+        optEmployeeDesc: "अडकलेला PF, ESIC क्लेम फेटाळणे, ग्रॅच्युइटी वसुली, तक्रार",
+        step2EmpTitle: "आपल्या कंपनीला कोणती कायदेशीर सेवा हवी आहे?",
+        step2EmpDesc: "आपला मुख्य विषय निवडा:",
+        step2EmpeeTitle: "कोणती कायदेशीर तक्रार दाखल करायची आहे?",
+        step2EmpeeDesc: "आपली तक्रार निवडा:",
+        step3Title: "केस माहिती व अटी",
+        step3Desc: "पुढे जाण्यासाठी माहिती द्या:",
+        descLabel: "समस्येचे वर्णन (किमान १० शब्द अनिवार्य):",
+        wordHint: "अनिवार्य: किमान १० शब्द लिहा",
+        scaleLabel: "कंपनीतील एकूण कर्मचारी संख्या:",
+        claimLabel: "अंदाजे दावा केलेली रक्कम:",
+        feeLabel: "सल्ला व केस फी अटी:",
+        step4Title: "आपली संपर्क माहिती",
+        step4Desc: "सविस्तर माहिती भरा:",
+        nameLabel: "आपले पूर्ण नाव:",
+        companyLabel: "कंपनी / आस्थापनेचे नाव:",
+        phoneLabel: "व्हॉट्सॲप नंबर:",
+        emailLabel: "ईमेल पत्ता:",
+        resApprovedTitle: "केस प्राधान्याने मंजूर",
+        resApprovedDesc: "आपली माहिती तयार आहे. खालील बटणावर क्लिक करून थेट ॲड. विक्रम वर्णेकर यांना WhatsApp वर मेसेज करा.",
+        waBtnText: "ॲड. विक्रम यांना WhatsApp वर मेसेज करा",
+        genInquiryTitle: "चौकशी नोंदवली आहे",
+        genInquiryDesc: "धन्यवाद! आपली सामान्य चौकशी प्राप्त झाली आहे. आमची लीगल टीम याची तपासणी करेल आणि योग्य वेळी ईमेलद्वारे संपर्क करेल.",
+        minWordsAlert: "कृपया आपल्या समस्येचे किमान १० शब्दांत वर्णन करा जेणेकरून ॲड. विक्रम केस व्यवस्थित तपासू शकतील."
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const dict = I18N[lang];
+      document.getElementById('heroEyebrow').innerHTML = dict.eyebrow;
+      document.getElementById('heroHeadline').innerHTML = dict.heroHead;
+      document.getElementById('heroSub').innerText = dict.heroSub;
+      document.getElementById('step1Kicker').innerHTML = dict.step1Kicker;
+      document.getElementById('step1Title').innerText = dict.step1Title;
+      document.getElementById('step1Desc').innerText = dict.step1Desc;
+      document.getElementById('optEmployerTitle').innerText = dict.optEmployerTitle;
+      document.getElementById('optEmployerDesc').innerText = dict.optEmployerDesc;
+      document.getElementById('optEmployeeTitle').innerText = dict.optEmployeeTitle;
+      document.getElementById('optEmployeeDesc').innerText = dict.optEmployeeDesc;
+      document.getElementById('step2EmpTitle').innerText = dict.step2EmpTitle;
+      document.getElementById('step2EmpDesc').innerText = dict.step2EmpDesc;
+      document.getElementById('step2EmpeeTitle').innerText = dict.step2EmpeeTitle;
+      document.getElementById('step2EmpeeDesc').innerText = dict.step2EmpeeDesc;
+      document.getElementById('step3Title').innerText = dict.step3Title;
+      document.getElementById('step3Desc').innerText = dict.step3Desc;
+      document.getElementById('descLabel').innerText = dict.descLabel;
+      document.getElementById('wordHint').innerText = dict.wordHint;
+      document.getElementById('scaleLabel').innerText = dict.scaleLabel;
+      document.getElementById('claimLabel').innerText = dict.claimLabel;
+      document.getElementById('feeLabel').innerText = dict.feeLabel;
+      document.getElementById('step4Title').innerText = dict.step4Title;
+      document.getElementById('step4Desc').innerText = dict.step4Desc;
+      document.getElementById('nameLabel').innerText = dict.nameLabel;
+      document.getElementById('companyLabel').innerText = dict.companyLabel;
+      document.getElementById('phoneLabel').innerText = dict.phoneLabel;
+      document.getElementById('emailLabel').innerText = dict.emailLabel;
+      document.getElementById('resApprovedTitle').innerText = dict.resApprovedTitle;
+      document.getElementById('resApprovedDesc').innerText = dict.resApprovedDesc;
+      document.getElementById('waBtnText').innerText = dict.waBtnText;
+      document.getElementById('genInquiryTitle').innerText = dict.genInquiryTitle;
+      document.getElementById('genInquiryDesc').innerText = dict.genInquiryDesc;
+    }
+
+    const leadData = {
+      clientType: '',
+      service: '',
+      serviceCategory: '',
+      description: '',
+      scaleOrClaim: '',
+      budget: '',
+      name: '',
+      company: '',
+      phone: '',
+      email: ''
+    };
+
+    function updateStepper(stepNum) {
+      for (let i = 1; i <= 4; i++) {
+        const seg = document.getElementById('notch' + i);
+        if (seg) {
+          if (i <= stepNum) {
+            seg.classList.add('active');
+          } else {
+            seg.classList.remove('active');
+          }
+        }
+      }
+    }
+
+    function goToStep(stepNum) {
+      document.querySelectorAll('.step-view').forEach(el => el.classList.add('hidden'));
+
+      let targetEl;
+      if (stepNum === 1) {
+        targetEl = document.getElementById('step1');
+      } else if (stepNum === 2) {
+        targetEl = (leadData.clientType === 'employer') ? document.getElementById('step2_employer') : document.getElementById('step2_employee');
+      } else if (stepNum === 3) {
+        targetEl = document.getElementById('step3');
+        if (leadData.clientType === 'employer') {
+          document.getElementById('employeeDescWrap').classList.add('hidden');
+          document.getElementById('scaleWrap').classList.remove('hidden');
+          document.getElementById('claimWrap').classList.add('hidden');
+          document.getElementById('companyLabel').innerText = (currentLang === 'mr' ? "कंपनी / आस्थापनेचे नाव:" : currentLang === 'hi' ? "कंपनी / संस्थान का नाम:" : "Company / Establishment Name:");
+        } else {
+          if (isGeneralInquiry) {
+            document.getElementById('employeeDescWrap').classList.add('hidden');
+            document.getElementById('claimWrap').classList.add('hidden');
+            document.getElementById('scaleWrap').classList.add('hidden');
+          } else {
+            document.getElementById('employeeDescWrap').classList.remove('hidden');
+            document.getElementById('claimWrap').classList.remove('hidden');
+            document.getElementById('scaleWrap').classList.add('hidden');
+            checkWordCount();
+          }
+          document.getElementById('companyLabel').innerText = (currentLang === 'mr' ? "कंपनीचे नाव:" : currentLang === 'hi' ? "कंपनी का नाम:" : "Employer / Company Name:");
+        }
+      } else if (stepNum === 4) {
+        targetEl = document.getElementById('step4');
+      }
+
+      if (targetEl) {
+        targetEl.classList.remove('hidden');
+        // Re-trigger animation
+        targetEl.style.animation = 'none';
+        targetEl.offsetHeight; // force reflow
+        targetEl.style.animation = null;
+      }
+
+      updateStepper(stepNum);
+    }
+
+    function selectClientType(type) {
+      leadData.clientType = type;
+      isGeneralInquiry = false;
+      goToStep(2);
+    }
+
+    function selectEmployerService(serviceName, category) {
+      leadData.service = serviceName;
+      leadData.serviceCategory = category;
+
+      if (category === 'contracting') {
+        showDisqualification(
+          currentLang === 'mr' 
+            ? "आम्ही मजूर पुरवठा (Labour Contracting / Manpower Supply) सेवा देत नाही. आम्ही केवळ सरकारी कायदे, परवाने व कोर्ट प्रकरणांचे काम करतो."
+            : currentLang === 'hi'
+            ? "हम लेबर सप्लाई (Manpower Contracting) का काम नहीं करते हैं। हमारी फर्म केवल कानूनी नोटिस, लाइसेंस व कोर्ट मामलों का काम करती है।"
+            : "We do not provide Labour Supply / Manpower Contracting services. Aditya Multi Services strictly handles statutory legal compliance, department litigation, and licensing."
+        );
+        return;
+      }
+
+      goToStep(3);
+    }
+
+    function selectEmployeeService(serviceName, category) {
+      leadData.service = serviceName;
+      leadData.serviceCategory = category;
+
+      if (category === 'general_inquiry') {
+        isGeneralInquiry = true;
+        goToStep(4);
+        return;
+      }
+
+      isGeneralInquiry = false;
+      goToStep(3);
+    }
+
+    // 10 WORDS VALIDATOR (For Employees Only)
+    function getWordCount(text) {
+      const trimmed = text.trim();
+      if (!trimmed) return 0;
+      return trimmed.split(/\s+/).filter(w => w.length > 0).length;
+    }
+
+    function checkWordCount() {
+      const text = document.getElementById('caseDescription').value;
+      const count = getWordCount(text);
+      const badge = document.getElementById('wordCountBadge');
+
+      badge.innerText = `${count} / 10 words`;
+
+      if (count >= 10) {
+        badge.classList.add('valid');
+        badge.innerText = `✓ ${count} words (Ready)`;
+      } else {
+        badge.classList.remove('valid');
+      }
+    }
+
+    function validateStep3() {
+      if (leadData.clientType === 'employee' && !isGeneralInquiry) {
+        const desc = document.getElementById('caseDescription').value.trim();
+        const count = getWordCount(desc);
+
+        if (count < 10) {
+          alert(I18N[currentLang].minWordsAlert + ` (Current: ${count} words)`);
+          document.getElementById('caseDescription').focus();
+          return;
+        }
+        leadData.description = desc;
+        leadData.scaleOrClaim = document.getElementById('claimInput').value;
+      } else if (leadData.clientType === 'employer') {
+        leadData.description = "Employer / HR Corporate Inquiry";
+        leadData.scaleOrClaim = document.getElementById('scaleInput').value;
+      }
+
+      leadData.budget = document.getElementById('feeAgreementInput').value;
+
+      if (leadData.budget === 'Looking for free advice only') {
+        isGeneralInquiry = true;
+      }
+
+      goToStep(4);
+    }
+
+    function submitQualification() {
+      const name = document.getElementById('fullName').value.trim();
+      const company = document.getElementById('companyName').value.trim();
+      const phone = document.getElementById('phoneInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+
+      if (!name || !company || !phone || !email) {
+        alert("Please complete all contact fields.");
+        return;
+      }
+
+      leadData.name = name;
+      leadData.company = company;
+      leadData.phone = phone;
+      leadData.email = email;
+
+      if (isGeneralInquiry) {
+        showGeneralInquiryConfirmation();
+        return;
+      }
+
+      showQualified();
+      sendToGoogleSheets(leadData);
+    }
+
+    function showQualified() {
+      document.querySelectorAll('.step-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('resultDisqualified').classList.add('hidden');
+      document.getElementById('resultGeneralInquiry').classList.add('hidden');
+      
+      const res = document.getElementById('resultQualified');
+      res.classList.remove('hidden');
+      updateStepper(4);
+
+      const clientLabel = leadData.clientType === 'employer' ? "Workforce Scale" : "Claim Bracket";
+      const descHtml = (leadData.clientType === 'employee' && leadData.description)
+        ? `<strong>Case Summary (10+ words):</strong><br><span style="color:#f5b840; font-style:italic;">"${leadData.description}"</span>`
+        : `<strong>Status:</strong> Priority Corporate Consultation`;
+
+      document.getElementById('qualificationSummary').innerHTML = `
+        <strong>Party:</strong> ${leadData.name} (${leadData.company})<br>
+        <strong>Matter:</strong> ${leadData.service}<br>
+        <strong>${clientLabel}:</strong> ${leadData.scaleOrClaim}<br>
+        ${descHtml}
+      `;
+
+      let waText = "";
+      if (leadData.clientType === 'employer') {
+        waText =
+          `*QUALIFIED EMPLOYER LEGAL CONSULTATION REQUEST*\n\n` +
+          `Hello Adv. Vikram Sir,\n` +
+          `I completed the case eligibility check for *${leadData.company}*.\n\n` +
+          `*LEGAL CASE SUMMARY:*\n` +
+          `• *Representative:* ${leadData.name}\n` +
+          `• *Matter:* ${leadData.service}\n` +
+          `• *Workforce Scale:* ${leadData.scaleOrClaim}\n` +
+          `• *Contact:* ${leadData.phone} | ${leadData.email}\n\n` +
+          `We are prepared to engage your paid consultancy services. Please let us know when we can discuss our matter.`;
+      } else {
+        waText =
+          `*QUALIFIED EMPLOYEE LEGAL CASE FILING INQUIRY*\n\n` +
+          `Hello Adv. Vikram Sir,\n` +
+          `I completed the case eligibility check regarding my dispute against *${leadData.company}*.\n\n` +
+          `*LEGAL CASE SUMMARY:*\n` +
+          `• *Claimant:* ${leadData.name}\n` +
+          `• *Matter:* ${leadData.service}\n` +
+          `• *Claim Bracket:* ${leadData.scaleOrClaim}\n` +
+          `• *Contact:* ${leadData.phone} | ${leadData.email}\n\n` +
+          `*CASE STATEMENT:*\n` +
+          `"${leadData.description}"\n\n` +
+          `I confirm readiness to pay your professional legal consultation & case filing fees. Please let me know how to proceed.`;
+      }
+
+      const encodedMsg = encodeURIComponent(waText);
+      const waUrl = `https://wa.me/${CONSULTANT_WHATSAPP_NUMBER}?text=${encodedMsg}`;
+
+      document.getElementById('directWhatsAppBtn').href = waUrl;
+    }
+
+    function showGeneralInquiryConfirmation() {
+      document.querySelectorAll('.step-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('resultDisqualified').classList.add('hidden');
+      document.getElementById('resultQualified').classList.add('hidden');
+      document.getElementById('resultGeneralInquiry').classList.remove('hidden');
+      updateStepper(4);
+    }
+
+    function showDisqualification(reason) {
+      document.querySelectorAll('.step-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('resultQualified').classList.add('hidden');
+      document.getElementById('resultGeneralInquiry').classList.add('hidden');
+      document.getElementById('resultDisqualified').classList.remove('hidden');
+      document.getElementById('disqualificationReason').innerText = reason;
+      updateStepper(4);
+    }
+
+    function sendToGoogleSheets(data) {
+      if (!APPS_SCRIPT_WEBHOOK_URL) return;
+
+      fetch(APPS_SCRIPT_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).catch(err => console.log('Sheet log:', err));
+    }
+  </script>
+</body>
+</html>

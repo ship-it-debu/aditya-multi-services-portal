@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp wa.me Lead Generator & Campaign Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0D14;
+      --card-bg: #121622;
+      --card-border: #1E2638;
+      --accent: #25D366;
+      --accent-glow: rgba(37, 211, 102, 0.25);
+      --amber: #D35400;
+      --text: #F3F4F6;
+      --text-muted: #9CA3AF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(37, 211, 102, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin-bottom: 8px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      background: #080B11;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+
+    input[type="text"]:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .preset-btn {
+      background: #192030;
+      border: 1px solid #28334D;
+      color: #E2E8F0;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #25D366;
+      color: #000;
+      border-color: #25D366;
+    }
+
+    .output-box {
+      background: #05070B;
+      border: 1px solid #1E283D;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    .output-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .url-display {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      word-break: break-all;
+      background: #0D111A;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #232C42;
+      color: #38BDF8;
+      margin-bottom: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #20BA5A;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: #1F293D;
+      color: #FFF;
+      border: 1px solid #334155;
+    }
+
+    .btn-secondary:hover {
+      background: #2A3752;
+    }
+
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: var(--accent);
+      color: #000;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px 16px;
+      position: fixed;
+      z-index: 99;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadein 0.3s, fadeout 0.3s 2.2s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 10px; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 10px; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge">Inbound Traffic Tool</div>
+      <h1>wa.me Link & Trigger Generator</h1>
+      <p class="subtitle">Create optimized WhatsApp click-to-chat links to start the 24/7 lead qualification chatbot</p>
+    </div>
+
+    <div class="card">
+      <div class="form-group">
+        <label for="phoneNumber">WhatsApp Business Number (with Country Code):</label>
+        <input type="text" id="phoneNumber" placeholder="e.g. 919876543210 (No +, spaces, or dashes)" value="91">
+        <div class="hint">Always include country code (e.g. 91 for India, 1 for US/Canada) without '+' or special symbols.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="leadMessage">Pre-filled Inbound Message (What the user sends to start the bot):</label>
+        <textarea id="leadMessage" rows="3" placeholder="Type or click a preset below...">Hi Vikram, I need assistance with our business labour law compliance & audit.</textarea>
+        
+        <div class="presets">
+          <button class="preset-btn" onclick="setPreset('Compliance Audit', 'Hi, I would like to get a Labour Law & Compliance Audit quote for our company.')">Audit Quote</button>
+          <button class="preset-btn" onclick="setPreset('EPF / Notice', 'Hello, we received an urgent EPF / ESIC inspection notice and need assistance.')">Urgent Notice Help</button>
+          <button class="preset-btn" onclick="setPreset('Store / Lead Magnet', 'Hi, I just downloaded your guide and would like to speak to an advisor.')">Lead Magnet Follow-up</button>
+          <button class="preset-btn" onclick="setPreset('Licensing', 'Hello, I want to apply for a Factory / Contract Labour License for our establishment.')">Licensing Support</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="campaignSource">Campaign / Channel Tag (Optional):</label>
+        <input type="text" id="campaignSource" placeholder="e.g. [Ref: Instagram Bio], [Ref: Google Ads], [Ref: SuperProfile]" value="[Ref: Website]">
+        <div class="hint">Appended to the message so you can track in your Google Sheet where each lead originated.</div>
+      </div>
+
+      <div class="output-box">
+        <div class="output-title">Generated Click-to-Chat Link (wa.me)</div>
+        <div class="url-display" id="urlDisplay">https://wa.me/91?text=...</div>
+        
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="copyLink()">📋 Copy wa.me Link</button>
+          <a class="btn btn-secondary" id="testBtn" href="#" target="_blank">🚀 Open in WhatsApp (Test)</a>
+          <button class="btn btn-secondary" onclick="copyHtmlTag()">💻 Copy HTML Button Code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Link copied to clipboard!</div>
+
+  <script>
+    const phoneInput = document.getElementById('phoneNumber');
+    const messageInput = document.getElementById('leadMessage');
+    const campaignInput = document.getElementById('campaignSource');
+    const urlDisplay = document.getElementById('urlDisplay');
+    const testBtn = document.getElementById('testBtn');
+
+    function updateUrl() {
+      let phone = phoneInput.value.replace(/[^0-9]/g, '');
+      let text = messageInput.value.trim();
+      let campaign = campaignInput.value.trim();
+
+      let fullText = text;
+      if (campaign) {
+        fullText += ' ' + campaign;
+      }
+
+      let encoded = encodeURIComponent(fullText);
+      let finalUrl = `https://wa.me/${phone}?text=${encoded}`;
+
+      urlDisplay.innerText = finalUrl;
+      testBtn.href = finalUrl;
+    }
+
+    function setPreset(title, text) {
+      messageInput.value = text;
+      updateUrl();
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(urlDisplay.innerText).then(() => {
+        showToast("Link copied to clipboard!");
+      });
+    }
+
+    function copyHtmlTag() {
+      const link = urlDisplay.innerText;
+      const htmlCode = `<a href="${link}" target="_blank" style="display:inline-block; background-color:#25D366; color:#000; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; font-family:sans-serif;">💬 Chat on WhatsApp</a>`;
+      navigator.clipboard.writeText(htmlCode).then(() => {
+        showToast("HTML button code copied!");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.innerText = msg;
+      toast.className = "toast show";
+      setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
+    }
+
+    phoneInput.addEventListener('input', updateUrl);
+    messageInput.addEventListener('input', updateUrl);
+    campaignInput.addEventListener('input', updateUrl);
+
+    // Initial run
+    updateUrl();
+  </script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Lead Qualification Bot Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0E14;
+      --card-bg: #141923;
+      --wa-header: #075E54;
+      --wa-bg: #0B141A;
+      --wa-chat-bg: #0E161E;
+      --wa-green: #25D366;
+      --user-bubble: #005C4B;
+      --bot-bubble: #202C33;
+      --text: #E9EDEF;
+      --text-muted: #8696A0;
+      --border: #222D34;
+      --accent-amber: #D35400;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .main-layout {
+      display: flex;
+      gap: 25px;
+      width: 100%;
+      max-width: 1200px;
+      height: 90vh;
+    }
+
+    /* Phone Mockup */
+    .phone-wrapper {
+      flex: 1;
+      max-width: 440px;
+      background: #000;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 2px #262D35;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-screen {
+      background: var(--wa-chat-bg);
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+    }
+
+    .wa-top-bar {
+      background: var(--wa-header);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .wa-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #128C7E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .wa-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .wa-info p {
+      font-size: 11px;
+      color: #D1D7DB;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .message {
+      max-width: 82%;
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      position: relative;
+      word-break: break-word;
+      white-space: pre-line;
+    }
+
+    .message.bot {
+      background: var(--bot-bubble);
+      color: #E9EDEF;
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+    }
+
+    .message.user {
+      background: var(--user-bubble);
+      color: #E9EDEF;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+    }
+
+    .timestamp {
+      font-size: 10px;
+      color: var(--text-muted);
+      float: right;
+      margin-left: 8px;
+      margin-top: 4px;
+    }
+
+    .chat-input-bar {
+      background: #1F2C34;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-input-bar input {
+      flex: 1;
+      background: #2A3942;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 20px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .send-btn {
+      background: var(--wa-green);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+      transition: transform 0.1s;
+    }
+
+    .send-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Live Google Sheets Dashboard Preview */
+    .dashboard-panel {
+      flex: 1.4;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dash-title h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #F1F5F9;
+    }
+
+    .dash-title p {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .status-badge {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .status-badge.live {
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--wa-green);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    .sheet-preview {
+      background: #0B0E14;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--accent-amber);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #1E2732;
+      color: #CBD5E1;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tag-qualified {
+      background: rgba(37, 211, 102, 0.2);
+      color: #4ADE80;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .tag-nurture {
+      background: rgba(245, 158, 11, 0.2);
+      color: #FBBF24;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .state-box {
+      background: #0D121B;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      color: #94A3B8;
+      margin-top: auto;
+    }
+
+    .state-title {
+      font-weight: 700;
+      color: #38BDF8;
+      margin-bottom: 8px;
+    }
+
+    .btn-reset {
+      background: #EF4444;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-layout">
+    
+    <!-- Phone Simulator -->
+    <div class="phone-wrapper">
+      <div class="phone-screen">
+        <div class="wa-top-bar">
+          <div class="wa-avatar">AMS</div>
+          <div class="wa-info">
+            <h3>Aditya Multi Services Bot</h3>
+            <p>online (24x7 Apps Script Engine)</p>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatArea">
+          <!-- Dynamically filled -->
+        </div>
+
+        <div class="chat-input-bar">
+          <input type="text" id="userInput" placeholder="Type a reply..." onkeydown="if(event.key==='Enter') sendUserMessage()">
+          <button class="send-btn" onclick="sendUserMessage()">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Sheet Live Output Panel -->
+    <div class="dashboard-panel">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h2>Google Sheet: "Qualified Leads" Live Sync</h2>
+          <p>Real-time emulation of Google Apps Script SpreadsheetApp writes</p>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span class="status-badge live">● 24x7 Webhook Active</span>
+          <button class="btn-reset" onclick="resetBot()">Reset Simulation</button>
+        </div>
+      </div>
+
+      <div class="sheet-preview">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Status</th>
+              <th>Client / Company</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Requirement</th>
+              <th>Scale</th>
+              <th>Urgency</th>
+              <th>Lead Notes</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody">
+            <tr>
+              <td colspan="9" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                No completed leads yet. Complete the WhatsApp chat on the left to watch this row auto-fill!
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="state-box">
+        <div class="state-title">APPS SCRIPT SESSION STATE (RAM / PropertiesService):</div>
+        <div id="sessionDisplay">Current Step: 0 (Awaiting inbound message)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Exact clone of the Google Apps Script State Machine
+    const CONFIG = {
+      BUSINESS_NAME: "Aditya Multi Services",
+      ADVISOR_CONTACT: "amsleadsv@gmail.com",
+      QUALIFIED_TIMELINES: ['Immediately / Urgent', 'Within 7-15 Days'],
+      EXCLUDED_BUDGETS: ['Looking for free advice only']
+    };
+
+    const FLOW_STEPS = [
+      {
+        step: 1,
+        field: 'name',
+        prompt: "👋 Welcome to " + CONFIG.BUSINESS_NAME + "!\n\nI am your automated compliance & business assistant. To connect you with the right specialist, may I know your *Full Name* and *Company Name*?",
+        validate: (t) => t && t.trim().length >= 2,
+        error: "Please enter a valid name (at least 2 letters)."
+      },
+      {
+        step: 2,
+        field: 'requirement',
+        prompt: "Thank you! What service or legal support are you seeking today?\n\nReply with a number:\n1️⃣ Labour Law & Compliance Audit\n2️⃣ Factory / Shops & Est. Licensing\n3️⃣ EPF / ESIC Notice & Litigation Support\n4️⃣ Payroll & Minimum Wages Restructuring\n5️⃣ Other Business Legal Services",
+        process: (t) => {
+          const map = {
+            '1': 'Labour Law & Compliance Audit',
+            '2': 'Factory / Shops & Est. Licensing',
+            '3': 'EPF / ESIC Notice & Litigation Support',
+            '4': 'Payroll & Minimum Wages Restructuring',
+            '5': 'Other Business Legal Services'
+          };
+          return map[t.trim()] || t.trim();
+        },
+        validate: (t) => t && t.trim().length > 0,
+        error: "Please select an option (1-5) or type your requirement."
+      },
+      {
+        step: 3,
+        field: 'scale',
+        prompt: "Got it! How many total employees/workers are in your establishment?\n\n1️⃣ 1 to 10 employees\n2️⃣ 11 to 49 employees\n3️⃣ 50 to 200 employees\n4️⃣ 200+ enterprise employees",
+        process: (t) => {
+          const map = {
+            '1': '1 - 10 employees',
+            '2': '11 - 49 employees',
+            '3': '50 - 200 employees',
+            '4': '200+ employees'
+          };
+          return map[t.trim()] || t.trim();
+        },
+        validate: (t) => t && t.trim().length > 0,
+        error: "Please choose team size (1-4)."
+      },
+      {
+        step: 4,
+        field: 'urgency',
+        prompt: "How urgent is this requirement for your firm?\n\n1️⃣ Urgent / Notice received (Need help within 24-48 hrs)\n2️⃣ Within 7-15 Days\n3️⃣ Planning / Next Month\n4️⃣ Just exploring information",
+        process: (t) => {
+          const map = {
+            '1': 'Immediately / Urgent',
+            '2': 'Within 7-15 Days',
+            '3': 'Planning / Next Month',
+            '4': 'Looking for free advice only'
+          };
+          return map[t.trim()] || t.trim();
+        },
+        validate: (t) => t && t.trim().length > 0,
+        error: "Please select your timeline urgency (1-4)."
+      },
+      {
+        step: 5,
+        field: 'email',
+        prompt: "Almost done! Please share your *Official Email Address* where we can send the consultation brief and formal documentation checklist.",
+        validate: (t) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t.trim()),
+        error: "Please provide a valid email (e.g. name@company.com)."
+      }
+    ];
+
+    let session = {
+      phone: "+91 98220 XXXXX",
+      currentStep: 0,
+      data: {}
+    };
+
+    let loggedLeads = [];
+
+    const chatArea = document.getElementById('chatArea');
+    const userInput = document.getElementById('userInput');
+    const sessionDisplay = document.getElementById('sessionDisplay');
+    const leadsTableBody = document.getElementById('leadsTableBody');
+
+    function getTime() {
+      const now = new Date();
+      return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    }
+
+    function addBubble(text, sender) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      
+      // Convert basic markdown *bold* to <strong>
+      let formatted = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+
+      div.innerHTML = formatted + `<span class="timestamp">${getTime()}</span>`;
+      chatArea.appendChild(div);
+      chatArea.scrollTop = chatArea.scrollHeight;
+    }
+
+    function updateSessionUI() {
+      sessionDisplay.innerHTML = `<strong>Current Step:</strong> ${session.currentStep} of ${FLOW_STEPS.length}<br><strong>Captured Data:</strong> ${JSON.stringify(session.data, null, 2)}`;
+    }
+
+    function sendUserMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      addBubble(text, 'user');
+      userInput.value = '';
+
+      setTimeout(() => {
+        handleIncomingMessage(text);
+      }, 400);
+    }
+
+    function handleIncomingMessage(text) {
+      if (text.toLowerCase() === 'reset' || text.toLowerCase() === 'restart') {
+        resetBot();
+        return;
+      }
+
+      if (session.currentStep === 0) {
+        // Initial inbound message trigger
+        session.currentStep = 1;
+        updateSessionUI();
+        addBubble(FLOW_STEPS[0].prompt, 'bot');
+        return;
+      }
+
+      const stepIndex = session.currentStep - 1;
+
+      if (stepIndex >= FLOW_STEPS.length) {
+        addBubble("You have already submitted your details! Our legal consultant is reviewing your file and will contact you directly.", 'bot');
+        return;
+      }
+
+      const currentStepDef = FLOW_STEPS[stepIndex];
+
+      if (!currentStepDef.validate(text)) {
+        addBubble("⚠️ " + currentStepDef.error, 'bot');
+        return;
+      }
+
+      const val = currentStepDef.process ? currentStepDef.process(text) : text;
+      session.data[currentStepDef.field] = val;
+      session.currentStep++;
+      updateSessionUI();
+
+      if (session.currentStep <= FLOW_STEPS.length) {
+        const nextStepDef = FLOW_STEPS[session.currentStep - 1];
+        addBubble(nextStepDef.prompt, 'bot');
+      } else {
+        // All done!
+        finalizeSimulation();
+      }
+    }
+
+    function finalizeSimulation() {
+      const d = session.data;
+      let isQualified = true;
+      let reasons = [];
+
+      if (CONFIG.EXCLUDED_BUDGETS.includes(d.urgency)) {
+        isQualified = false;
+        reasons.push("Free advice only");
+      } else if (CONFIG.QUALIFIED_TIMELINES.includes(d.urgency)) {
+        reasons.push("High Urgency");
+      }
+
+      if (d.scale && (d.scale.includes('50') || d.scale.includes('200') || d.scale.includes('11'))) {
+        reasons.push("Commercial Team");
+      }
+
+      const status = isQualified ? "QUALIFIED" : "NURTURE / LOW PRIORITY";
+      const reasonStr = reasons.join(', ') || "Standard Inbound";
+
+      // Bot completion message
+      if (isQualified) {
+        addBubble(`🎉 *Thank you, ${d.name}!*\n\nYour details have been successfully qualified and logged to our Sheets CRM.\n\n📋 *Summary:*\n• Service: ${d.requirement}\n• Scale: ${d.scale}\n• Timeline: ${d.urgency}\n• Email: ${d.email}\n\nOur Senior Consultant will reach out shortly!`, 'bot');
+      } else {
+        addBubble(`Thank you, ${d.name}. We have received your inquiry. Our team will review your requirements and reach out via email (${d.email}) when a suitable consultation slot opens.`, 'bot');
+      }
+
+      // Append row to simulated Google Sheets table
+      const leadEntry = {
+        time: new Date().toLocaleTimeString(),
+        status: status,
+        name: d.name,
+        phone: session.phone,
+        email: d.email,
+        requirement: d.requirement,
+        scale: d.scale,
+        urgency: d.urgency,
+        notes: reasonStr
+      };
+
+      loggedLeads.unshift(leadEntry);
+      renderTable();
+    }
+
+    function renderTable() {
+      if (loggedLeads.length === 0) return;
+
+      leadsTableBody.innerHTML = loggedLeads.map(l => `
+        <tr>
+          <td>${l.time}</td>
+          <td><span class="${l.status === 'QUALIFIED' ? 'tag-qualified' : 'tag-nurture'}">${l.status}</span></td>
+          <td><strong>${l.name}</strong></td>
+          <td>${l.phone}</td>
+          <td>${l.email}</td>
+          <td>${l.requirement}</td>
+          <td>${l.scale}</td>
+          <td>${l.urgency}</td>
+          <td>${l.notes}</td>
+        </tr>
+      `).join('');
+    }
+
+    function resetBot() {
+      session = {
+        phone: "+91 98220 XXXXX",
+        currentStep: 0,
+        data: {}
+      };
+      chatArea.innerHTML = '';
+      updateSessionUI();
+      // Inbound trigger simulation
+      addBubble("Hi Vikram, I saw your WhatsApp link and need help with labour compliance.", 'user');
+      setTimeout(() => {
+        handleIncomingMessage("Hi Vikram, I saw your WhatsApp link");
+      }, 500);
+    }
+
+    // Auto-start on page load
+    window.onload = () => {
+      resetBot();
+    };
+  </script>
+</body>
+</html>

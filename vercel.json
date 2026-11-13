@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/consult", "destination": "/index.html" },
+    { "source": "/portal", "destination": "/index.html" },
+    { "source": "/wa", "destination": "/wa_me_generator.html" },
+    { "source": "/simulator", "destination": "/lead_bot_simulator.html" }
+  ]
+}
