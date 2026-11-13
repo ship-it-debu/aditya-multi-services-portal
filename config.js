@@ -11,7 +11,7 @@ const APP_CONFIG = {
   // 1. WhatsApp Number for qualified clients to message:
   // Choose from your visiting card: "919022213960", "919503043977", or "918767262023"
   // Format: Include '91' country code without '+' or spaces.
-  WHATSAPP_NUMBER: "9545519177",
+  WHATSAPP_NUMBER: "919022213960",
 
   // 2. Google Apps Script Web App URL:
   // After following Step 1 in SETUP_GUIDE.md, paste the deployed Web App URL here.

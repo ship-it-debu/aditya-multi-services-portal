@@ -1490,9 +1490,13 @@
 
   <script src="config.js"></script>
   <script>
-    const CONSULTANT_WHATSAPP_NUMBER = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.WHATSAPP_NUMBER)
-      ? APP_CONFIG.WHATSAPP_NUMBER
-      : "919022213960"; 
+    let rawWaNumber = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.WHATSAPP_NUMBER)
+      ? String(APP_CONFIG.WHATSAPP_NUMBER).replace(/[^0-9]/g, '')
+      : "919022213960";
+    if (rawWaNumber.length === 10) {
+      rawWaNumber = "91" + rawWaNumber;
+    }
+    const CONSULTANT_WHATSAPP_NUMBER = rawWaNumber; 
 
     const APPS_SCRIPT_WEBHOOK_URL = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.GOOGLE_SHEET_WEBHOOK_URL)
       ? APP_CONFIG.GOOGLE_SHEET_WEBHOOK_URL
