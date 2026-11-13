@@ -227,7 +227,7 @@
        HERO SECTION WITH STAGGERED REVEAL ANIMATIONS
        ========================================================================== */
     .hero-container {
-      padding: 72px 0 36px;
+      padding: 36px 0 16px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -242,15 +242,15 @@
       border: 1px solid var(--gold-border);
       color: var(--gold-light);
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 6px 16px;
+      letter-spacing: 1.2px;
+      padding: 5px 14px;
       border-radius: 9999px;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
       opacity: 0;
-      animation: awwwardsFadeUp 0.8s var(--ease-out-expo) 0.15s forwards;
+      animation: awwwardsFadeUp 0.8s var(--ease-out-expo) 0.1s forwards;
     }
 
     .pulse-dot {
@@ -269,15 +269,15 @@
 
     .hero-h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700;
-      line-height: 1.14;
+      line-height: 1.16;
       color: var(--text-heading);
       letter-spacing: -0.02em;
-      max-width: 860px;
-      margin-bottom: 20px;
+      max-width: 720px;
+      margin-bottom: 10px;
       opacity: 0;
-      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.3s forwards;
+      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.2s forwards;
     }
 
     .hero-h1 em {
@@ -287,90 +287,13 @@
     }
 
     .hero-p {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      line-height: 1.65;
+      font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+      line-height: 1.55;
       color: var(--text-body);
-      max-width: 640px;
-      margin-bottom: 30px;
+      max-width: 540px;
+      margin-bottom: 24px;
       opacity: 0;
-      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.45s forwards;
-    }
-
-    /* Trust Signals Bar */
-    .trust-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      padding: 13px 28px;
-      background: rgba(18, 4, 10, 0.55);
-      border: 1px solid var(--border-subtle);
-      border-radius: 9999px;
-      margin-bottom: 36px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.6s forwards;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-body);
-    }
-
-    .trust-item strong {
-      font-family: var(--font-mono);
-      color: var(--gold-accent);
-      font-size: 14px;
-    }
-
-    .trust-divider {
-      color: rgba(255, 255, 255, 0.12);
-      font-size: 10px;
-    }
-
-    /* ==========================================================================
-       AWWWARDS INFINITE MARQUEE TICKER
-       ========================================================================== */
-    .marquee-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      padding: 14px 0;
-      margin-bottom: 40px;
-      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    }
-
-    .marquee-inner {
-      display: inline-block;
-      animation: marqueeScroll 32s linear infinite;
-    }
-
-    .marquee-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin: 0 16px;
-    }
-
-    .marquee-dot {
-      color: var(--gold-accent);
-      font-size: 14px;
-    }
-
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      animation: awwwardsFadeUp 0.9s var(--ease-out-expo) 0.3s forwards;
     }
 
     /* ==========================================================================
@@ -379,9 +302,36 @@
     .console-outer {
       width: 100%;
       max-width: 620px;
-      margin: 0 auto 90px;
+      margin: 0 auto 36px;
       opacity: 0;
-      animation: awwwardsFadeUp 1s var(--ease-out-expo) 0.75s forwards;
+      animation: awwwardsFadeUp 1s var(--ease-out-expo) 0.35s forwards;
+    }
+
+    .accreditation-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0 auto 44px;
+      padding: 10px 18px;
+      background: rgba(18, 4, 10, 0.5);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      width: fit-content;
+      max-width: 90%;
+      flex-wrap: wrap;
+    }
+
+    .accreditation-row strong {
+      color: var(--gold-accent);
+    }
+
+    .accreditation-row span.dot {
+      color: var(--gold-accent);
+      font-size: 8px;
     }
 
     .console-panel {
@@ -1037,51 +987,20 @@
 
     <div class="viewport-wrap">
       
-      <!-- 5-Part High Conversion Hero -->
+      <!-- Focused Executive Hero -->
       <section class="hero-container">
         <div class="kicker-pill">
           <span class="pulse-dot"></span>
-          <span id="heroEyebrow">Direct Legal Representation &bull; Pune, MH</span>
+          <span id="heroEyebrow">Adv. Vikram Varnekar &bull; Pune, MH</span>
         </div>
 
         <h1 class="hero-h1" id="heroHeadline">
-          Protect Your Business.<br>
-          <em>Recover Your Dues. Defend Your Rights.</em>
+          Direct Legal Representation.
         </h1>
 
         <p class="hero-p" id="heroSub">
-          28+ years of courtroom and department practice across EPFO, ESIC, Factory Act, and Labour Commissioner offices. Direct legal case assessment without corporate jargon.
+          Labour law advocacy & statutory department defense. Select your track below to verify case eligibility:
         </p>
-
-        <!-- Trust Signals Strip -->
-        <div class="trust-strip">
-          <div class="trust-item"><strong>28+</strong> Years Maharashtra Bar</div>
-          <span class="trust-divider">&bull;</span>
-          <div class="trust-item"><strong>117+</strong> Firms Retained</div>
-          <span class="trust-divider">&bull;</span>
-          <div class="trust-item"><strong>BCOM, DTL, DLL, LLB</strong></div>
-          <span class="trust-divider">&bull;</span>
-          <div class="trust-item"><strong>Pune & PCMC Industrial Belt</strong></div>
-        </div>
-
-        <!-- Awwwards Smooth Infinite Marquee Ticker -->
-        <div class="marquee-container">
-          <div class="marquee-inner">
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> EPFO Section 7A & 14B Defense</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Factory Act 1948 Licensing</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> ESIC Section 45A Orders</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Gratuity Form N Recovery</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> New Labour Codes 2026 Audit</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Labour Commissioner Petitions</span>
-            <!-- Repeat for seamless infinite loop -->
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> EPFO Section 7A & 14B Defense</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Factory Act 1948 Licensing</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> ESIC Section 45A Orders</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Gratuity Form N Recovery</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> New Labour Codes 2026 Audit</span>
-            <span class="marquee-tag"><span class="marquee-dot">&bull;</span> Labour Commissioner Petitions</span>
-          </div>
-        </div>
       </section>
 
       <!-- Interactive Intake Console -->
@@ -1438,89 +1357,16 @@
         </div>
       </div>
 
-      <!-- Editorial Practice Grid with SVG Vector Icons -->
-      <section class="authority-zone">
-        <p class="zone-kicker">Practice Areas &bull; Pune & Maharashtra</p>
-        <h2 class="zone-title">Core Legal Practice & Statutory Defense</h2>
-        
-        <div class="editorial-grid">
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-              </svg>
-            </div>
-            <div class="card-num">01 / LITIGATION</div>
-            <h3 class="card-title">EPFO & ESIC Department Defense</h3>
-            <p class="card-para">Direct representation in Section 7A, 14B damages, and 7Q interest inquiries before Regional PF Commissioners. Defending Section 45A contribution orders before ESIC Deputy Directors.</p>
-          </div>
-
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="6"></circle>
-                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-              </svg>
-            </div>
-            <div class="card-num">02 / LICENSING</div>
-            <h3 class="card-title">Statutory Licensing & Registrations</h3>
-            <p class="card-para">Complete licensing under the Factories Act 1948, Maharashtra Shops & Establishments Act, Contract Labour (CLRA) Principal Employer & Contractor licenses, and MPCB consent approvals.</p>
-          </div>
-
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-            <div class="card-num">03 / COMPLIANCE</div>
-            <h3 class="card-title">Labour Law Audits & New Codes 2026</h3>
-            <p class="card-para">Preparation for the 4 New Labour Codes (Wages, Social Security, OSH, Industrial Relations). Wage structure auditing, basic salary adjustments, and statutory registers verification.</p>
-          </div>
-
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="8"></circle>
-                <path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 3 5 2 5 5a2.5 2.5 0 0 1-5 0"></path>
-              </svg>
-            </div>
-            <div class="card-num">04 / RECOVERY</div>
-            <h3 class="card-title">Gratuity Recovery & Controlling Authority</h3>
-            <p class="card-para">Filing Form N applications for recovery of unpaid gratuity with compound interest under Section 7 of the Payment of Gratuity Act 1972 before the Controlling Authority.</p>
-          </div>
-
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="8" y1="13" x2="16" y2="13"></line>
-                <line x1="8" y1="17" x2="12" y2="17"></line>
-              </svg>
-            </div>
-            <div class="card-num">05 / ADVOCACY</div>
-            <h3 class="card-title">Labour Commissioner Petitions</h3>
-            <p class="card-para">Formal complaints and conciliation proceedings before Government Labour Officers and Assistant Labour Commissioners for illegal termination, wage withholding, and unfair labour practices.</p>
-          </div>
-
-          <div class="editorial-card">
-            <div class="card-icon-wrap">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-              </svg>
-            </div>
-            <div class="card-num">06 / CORPORATE</div>
-            <h3 class="card-title">Corporate Compliance Retainers</h3>
-            <p class="card-para">Monthly retainers covering EPF, ESIC, Professional Tax, MLWF challans, statutory return filings, and continuous inspection protection for Pune & PCMC business establishments.</p>
-          </div>
-        </div>
-      </section>
+      <!-- Compact Accreditation Bar -->
+      <div class="accreditation-row">
+        <span><strong>28+</strong> Years Bar Practice</span>
+        <span class="dot">&bull;</span>
+        <span><strong>117+</strong> Retainers</span>
+        <span class="dot">&bull;</span>
+        <span><strong>BCOM, DTL, DLL, LLB</strong></span>
+        <span class="dot">&bull;</span>
+        <span>Pune & PCMC Industrial Belt</span>
+      </div>
 
     </div>
 
@@ -1533,7 +1379,7 @@
           Advocate Vikram Varnekar (BCOM, DTL, DLL, LLB). Specialized Statutory Defense & Labour Litigation.
         </p>
         <a href="mailto:amsleadsv@gmail.com" class="footer-email-tag">amsleadsv@gmail.com</a>
-        <p class="footer-copy">&copy; 2026 Aditya Multi Services. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Aditya Multi Services. Case eligibility & client verification portal.</p>
       </div>
     </footer>
 
@@ -1556,12 +1402,12 @@
     let currentLang = 'en';
     let isGeneralInquiry = false;
 
-    // Multilingual Dictionary (10-word limit, polite general inquiry, no 60-sec)
+    // Multilingual Dictionary (10-word limit, polite general inquiry, concise text)
     const I18N = {
       en: {
-        eyebrow: "Direct Legal Representation &bull; Pune, MH",
-        heroHead: "Protect Your Business.<br><em>Recover Your Dues. Defend Your Rights.</em>",
-        heroSub: "28+ years of courtroom and department practice across EPFO, ESIC, Factory Act, and Labour Commissioner offices. Direct legal case assessment without corporate jargon.",
+        eyebrow: "Adv. Vikram Varnekar &bull; Pune, MH",
+        heroHead: "Direct Legal Representation.",
+        heroSub: "Labour law advocacy & statutory department defense. Select your track below to verify case eligibility:",
         step1Kicker: "Step 1 of 4 &bull; Client Track",
         step1Title: "Who is seeking legal representation?",
         step1Desc: "Select your category to route to the correct legal procedure:",
@@ -1594,9 +1440,9 @@
         minWordsAlert: "Please write at least 10 words describing what happened so Adv. Vikram can review your case."
       },
       hi: {
-        eyebrow: "सीधी कानूनी पैरवी व सलाह &bull; पुणे",
-        heroHead: "अपने व्यापार की सुरक्षा करें.<br><em>अपने अधिकार व बकाया राशि की कानूनी वसूली.</em>",
-        heroSub: "EPFO, ESIC, फैक्ट्री एक्ट व श्रम आयुक्त कार्यालयों में 28+ वर्षों का कानूनी अनुभव। बिना किसी जटिल भाषा के सीधी कानूनी सलाह।",
+        eyebrow: "एड. विक्रम वर्णेकर &bull; पुणे, महाराष्ट्र",
+        heroHead: "सीधी कानूनी पैरवी व सहायता.",
+        heroSub: "श्रम कानून व सरकारी विभाग पैरवी। केस जांच के लिए नीचे अपना विकल्प चुनें:",
         step1Kicker: "कदम 1 / 4 &bull; ग्राहक प्रकार",
         step1Title: "कानूनी सहायता किसे चाहिए?",
         step1Desc: "शुरू करने के लिए अपना विकल्प चुनें:",
@@ -1629,9 +1475,9 @@
         minWordsAlert: "कृपया अपनी समस्या कम से कम 10 शब्दों में लिखें ताकि वकील साहब आपका केस ठीक से समझ सकें।"
       },
       mr: {
-        eyebrow: "थेट कायदेशीर प्रतिनिधित्व &bull; पुणे",
-        heroHead: "आपल्या व्यवसायाचे कायदेशीर संरक्षण.<br><em>थकीत रकमांची वसुली व हक्कांचे रक्षण.</em>",
-        heroSub: "EPFO, ESIC, फॅक्टरी ॲक्ट आणि कामगार आयुक्त कार्यालयांमध्ये २८+ वर्षांचा प्रदीर्घ अनुभव. क्लिष्ट भाषेविना थेट केस तपासणी.",
+        eyebrow: "ॲड. विक्रम वर्णेकर &bull; पुणे, महाराष्ट्र",
+        heroHead: "थेट कायदेशीर प्रतिनिधित्व.",
+        heroSub: "कामगार कायदे व सरकारी नोटिसांचे संरक्षण. केस तपासणीसाठी खालील पर्याय निवडा:",
         step1Kicker: "पायरी १ / ४ &bull; ग्राहक प्रकार",
         step1Title: "कायदेशीर सल्ला कोणासाठी हवा आहे?",
         step1Desc: "सुरुवात करण्यासाठी योग्य पर्याय निवडा:",
